@@ -37,9 +37,7 @@ public class ModBlocks {
 	}
 	
 	public static void initBlockRecipies(){
-		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "iii", "d d", "iii", Character.valueOf('d'), Block.dirt, Character.valueOf('i'), Item.ingotIron
-			
-			});
+		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "iii", "d d", "iii", Character.valueOf('d'), Block.dirt, Character.valueOf('i'), Item.ingotIron});
 	}
 
 }
