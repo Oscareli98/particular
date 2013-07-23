@@ -1,6 +1,5 @@
 package particular.block;
 
-
 import net.minecraft.block.material.Material;
 import particular.lib.Strings;
 

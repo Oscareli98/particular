@@ -19,7 +19,7 @@ public class CreativeTabParticular extends CreativeTabs {
 	 */
 	public int getTabIconItemIndex() {
 
-		return 19;
+		return 3500;
 	}
 
 
