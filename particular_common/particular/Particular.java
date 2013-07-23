@@ -1,6 +1,7 @@
 package particular;
 
 import net.minecraft.creativetab.CreativeTabs;
+import particular.block.ModBlocks;
 import particular.core.proxy.CommonProxy;
 import particular.creativetab.CreativeTabParticular;
 import particular.lib.Reference;
@@ -24,12 +25,14 @@ public class Particular {
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 
-	public static CreativeTabs tabParticular = new CreativeTabParticular(
+	public static CreativeTabs tabsParticular = new CreativeTabParticular(
 			CreativeTabs.getNextID(), Reference.MOD_ID);
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		//Register blocks & items
+		
+		ModBlocks.init();
 	}
 	
 	@EventHandler
