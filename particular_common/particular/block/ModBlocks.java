@@ -1,6 +1,7 @@
 package particular.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import particular.lib.BlockIds;
@@ -36,7 +37,9 @@ public class ModBlocks {
 	}
 	
 	public static void initBlockRecipies(){
-		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "ddd", "d d", "ddd", Character.valueOf('d'), Block.dirt });
+		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "iii", "d d", "iii", Character.valueOf('d'), Block.dirt, Character.valueOf('v'), Item.ingotIron
+			
+			});
 	}
 
 }
