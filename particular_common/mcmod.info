@@ -1,0 +1,21 @@
+[
+{
+  "modid": "Particular",
+  "name": "Particular",
+  "description": "A very particular mod about particles.",
+  "version": "0.0.1",
+  "url": "http://github.com/Oscareli98/particular",
+  "updateUrl": "",
+  "authorList": [
+    "Oscareli98",
+    "Hunterthe100"
+  ],
+  "credits": "By Oscareli98 (Mostly Code), and Hunterthe100 (Mostly Textures)",
+  "logoFile": "/mods/particular/textures/logo/logo.png",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
