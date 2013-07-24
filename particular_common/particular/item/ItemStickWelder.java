@@ -1,5 +1,7 @@
 package particular.item;
 
+import java.util.Random;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -23,6 +25,10 @@ public class ItemStickWelder extends ItemParticular {
 			itemStack = null; 
 			entityPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.emptyStickWelder, 1));
 			//entityPlayer.inventory.setInventorySlotContents(0, new ItemStack(ModItems.emptyStickWelder, 1);
+			Random r = new Random();
+			if(r.nextInt(1000000) == 1234 ){
+				entityPlayer.addVelocity(1, 1, 1);
+			}
 		}
 		else{
 			itemStack.damageItem(1, entityPlayer);
