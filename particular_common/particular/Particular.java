@@ -1,7 +1,6 @@
 package particular;
 
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.common.MinecraftForge;
 import particular.block.ModBlocks;
 import particular.core.proxy.CommonProxy;
 import particular.creativetab.CreativeTabParticular;
