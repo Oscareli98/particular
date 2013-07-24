@@ -4,7 +4,7 @@ import particular.lib.Strings;
 
 
 
-public class ItemStickWelder extends ParticularItems {
+public class ItemStickWelder extends ItemParticular {
 
 	public ItemStickWelder(int id) {
 		super(id);

@@ -8,9 +8,9 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 
-public class ParticularItems extends Item {
+public class ItemParticular extends Item {
 
-    public ParticularItems(int id) {
+    public ItemParticular(int id) {
 
         super(id - Reference.SHIFTED_ID_RANGE_CORRECTION);
         maxStackSize = 1;

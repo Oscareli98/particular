@@ -2,7 +2,7 @@ package particular.item;
 
 import particular.lib.Strings;
 
-public class ItemScientificJournal extends ParticularItems {
+public class ItemScientificJournal extends ItemParticular {
 
 	public ItemScientificJournal(int id) {
 		super(id);
