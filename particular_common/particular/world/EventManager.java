@@ -21,25 +21,23 @@ public class EventManager implements IWorldGenerator {
 	}
 
 	private void generateEnd(World world, Random random, int x, int z) {
+		// always make blockXpos x and blockZpos z, maxX 16 and maxZ 16, the rest are up to you.  Metadata is for blocks that use metadata, if no metadata is used set it to 0
+		
 		//the below is an example and does work, do not use as the ender dragon does destroy blocks
 		//this.addEndOreSpawn(ModBlocks.tierTwoMachineHousing, 0, world, random, x, z, 16, 16, 6 + random.nextInt(7), 4, 20, 60);
 	}
 
 	private void generateSurface(World world, Random random, int x, int z) {
+		// always make blockXpos x and blockZpos z, maxX 16 and maxZ 16, the rest are up to you.  Metadata is for blocks that use metadata, if no metadata is used set it to 0
+		
 		this.addOreSpawn(ModBlocks.hypersonicPiston, world, random, x, z, 16, 16, 6 + random.nextInt(7), 4, 20, 60);
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {
+		// always make blockXpos x and blockZpos z, maxX 16 and maxZ 16, the rest are up to you.  Metadata is for blocks that use metadata, if no metadata is used set it to 0
+		
 		this.addNetherOreSpawn(ModBlocks.TierOneMachineHousing, 0, world, random, x, z, 16, 16, 6 + random.nextInt(7), 4, 20, 60);
 		
-		
-//		for (int i = 0; i < 5; i++) {
-//			int Xcoord = x + random.nextInt(16);
-//			int Ycoord = 20 + random.nextInt(41); //Generates between levels 20 and 60
-//			int Zcoord = z + random.nextInt(16);
-//			
-//			new WorldGenNetherMinable(ModBlocks.hypersonicPiston.blockID, 6 + random.nextInt(7)).generate(world, random, Xcoord, Ycoord, Zcoord);
-//		}
 	}
 
 	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
