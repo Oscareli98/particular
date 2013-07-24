@@ -10,4 +10,5 @@ public class Strings {
 	//Item related constants
 	public static final String EMPTY_STICK_WELDER_NAME = "emptyStickWelder";
 	public static final String STICK_WELDER_NAME = "stickWelder";
+	public static final String SCIENTIFIC_JOURNAL_NAME = "scientificJournal";
 }

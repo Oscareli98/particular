@@ -15,7 +15,11 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+<<<<<<< HEAD
 import particular.core.handlers.PlayerDestroyItemHandler;
+=======
+import cpw.mods.fml.common.registry.LanguageRegistry;
+>>>>>>> 8c74ac1e42e94a3c326ac3d8db62d9552cb5ad31
 
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
@@ -42,6 +46,7 @@ public class Particular {
 	public void load(FMLInitializationEvent event){
 		//Register events
 		MinecraftForge.EVENT_BUS.register(new PlayerDestroyItemHandler());
+		LanguageRegistry.instance().addStringLocalization("itemGroup.Particular", "Particular");
 	}
 	
 	@EventHandler
