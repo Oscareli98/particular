@@ -14,7 +14,7 @@ import particular.lib.Strings;
 
 public class BlockHypersonicPiston extends BlockParticular {
 
-	public BlockHypersonicPiston(int id){
+	public BlockHypersonicPiston(int id) {
 		super(id, Material.rock);
 		this.setUnlocalizedName(Strings.HYPERSONIC_PISTON_NAME);
 		this.setHardness(2F);
@@ -36,8 +36,7 @@ public class BlockHypersonicPiston extends BlockParticular {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void registerIcons(IconRegister iconRegister)
-	{
+	public void registerIcons(IconRegister iconRegister) {
 		System.out.println();
 		this.blockIcon = iconRegister.registerIcon("stonebrick");
 		this.bottom = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "0" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
@@ -50,8 +49,7 @@ public class BlockHypersonicPiston extends BlockParticular {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public Icon getIcon(int side, int meta)
-	{
+	public Icon getIcon(int side, int meta) {
 		//    	if (meta == 0 && side == 3)
 		//    		return faceIcon;
 		//    	if (meta == 2 && side == 2)
@@ -74,35 +72,33 @@ public class BlockHypersonicPiston extends BlockParticular {
 			return East;
 		return blockIcon;
 	}
-	
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityliving)
-	{
-	System.out.println("onBlockPlaced is Working");
-	int l = MathHelper.floor_double((double)((entityliving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
 
-	switch (l)
-	{
-	case 0:
-	world.setBlockMetadataWithNotify(x, y, z, 2, 2);
-	System.out.println("case 0" + l);
-	break;
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityliving) {
+		System.out.println("onBlockPlaced is Working");
+		int l = MathHelper.floor_double((double)((entityliving.rotationYaw * 4F) / 360F) + 0.5D) & 3;
 
-	case 1:
-	world.setBlockMetadataWithNotify(x, y, z, 5, 2);
-	System.out.println("case 1" + l);
-	break;
+		switch (l) {
+			case 0:
+				world.setBlockMetadataWithNotify(x, y, z, 2, 2);
+				System.out.println("case 0" + l);
+				break;
 
-	case 2:
-	world.setBlockMetadataWithNotify(x, y, z, 3, 2);
-	System.out.println("case 2" + l);
-	break;
+			case 1:
+				world.setBlockMetadataWithNotify(x, y, z, 5, 2);
+				System.out.println("case 1" + l);
+				break;
 
-	case 3:
-	world.setBlockMetadataWithNotify(x, y, z, 4, 2);
-	System.out.println("case 3" + l);
-	break;
+			case 2:
+				world.setBlockMetadataWithNotify(x, y, z, 3, 2);
+				System.out.println("case 2" + l);
+				break;
+
+			case 3:
+				world.setBlockMetadataWithNotify(x, y, z, 4, 2);
+				System.out.println("case 3" + l);
+				break;
+		}
 	}
-	}
-	
-	
+
+
 }
