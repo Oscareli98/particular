@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import particular.block.ModBlocks;
 import particular.core.proxy.CommonProxy;
 import particular.creativetab.CreativeTabParticular;
+import particular.item.ModItems;
 import particular.lib.Reference;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -31,7 +32,7 @@ public class Particular {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		//Register blocks & items
-		
+		ModItems.init();
 		ModBlocks.init();
 	}
 	
