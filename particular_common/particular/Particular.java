@@ -1,6 +1,7 @@
 package particular;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 import particular.block.ModBlocks;
 import particular.core.proxy.CommonProxy;
 import particular.creativetab.CreativeTabParticular;
@@ -14,6 +15,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import particular.core.handlers.PlayerDestroyItemHandler;
 
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
@@ -39,6 +41,7 @@ public class Particular {
 	@EventHandler
 	public void load(FMLInitializationEvent event){
 		//Register events
+		MinecraftForge.EVENT_BUS.register(new PlayerDestroyItemHandler());
 	}
 	
 	@EventHandler
