@@ -14,6 +14,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
@@ -39,6 +40,7 @@ public class Particular {
 	@EventHandler
 	public void load(FMLInitializationEvent event){
 		//Register events
+		LanguageRegistry.instance().addStringLocalization("itemGroup.Particular", "Particular");
 	}
 	
 	@EventHandler
