@@ -11,6 +11,7 @@ public class Strings {
 	//Ore related constants
 	public static final String BLOCK_ORE_COPPER_NAME = "oreCopper";
 	public static final String BLOCK_ORE_TIN_NAME = "oreTIN";
+	public static final String BLOCK_ORE_ALUMINUM_NAME = "oreAluminum";
 
 	//Item related constants
 	public static final String EMPTY_STICK_WELDER_NAME = "emptyStickWelder";

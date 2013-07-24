@@ -17,8 +17,10 @@ public class BlockIds {
 	/* Default Ore ids */
 	public static int ORE_COPPER_DEFAULT = 4000;
 	public static int ORE_TIN_DEFAULT = 4001;
+	public static int ORE_ALUMINUM_DEFAULT = 4002;
 	
 	public static int ORE_COPPER = ORE_COPPER_DEFAULT;
 	public static int ORE_TIN = ORE_TIN_DEFAULT;
+	public static int ORE_ALUMINUM = ORE_ALUMINUM_DEFAULT;
 
 }

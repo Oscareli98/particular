@@ -21,6 +21,7 @@ public class ModBlocks {
 	//Ore Instances
 	public static Block oreCopper;
 	public static Block oreTin;
+	public static Block oreAluminum;
 
 	public static void init(){
 		//Blocks
@@ -48,15 +49,19 @@ public class ModBlocks {
 		//Ore
 		oreCopper = new BlockOreCopper(BlockIds.ORE_COPPER, Material.iron);
 		oreTin = new BlockOreTin(BlockIds.ORE_TIN, Material.iron);
+		oreAluminum = new BlockOreAluminum(BlockIds.ORE_ALUMINUM, Material.iron);
 		
 		GameRegistry.registerBlock(oreCopper, Strings.BLOCK_ORE_COPPER_NAME);
 		GameRegistry.registerBlock(oreTin, Strings.BLOCK_ORE_TIN_NAME);
+		GameRegistry.registerBlock(oreAluminum, Strings.BLOCK_ORE_ALUMINUM_NAME);
 		
 		LanguageRegistry.addName(oreCopper, "Copper Ore");
 		LanguageRegistry.addName(oreTin, "Tin Ore");
+		LanguageRegistry.addName(oreAluminum, "Aluminum Ore");
 		
 		MinecraftForge.setBlockHarvestLevel(oreCopper, "Pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(oreTin, "Pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(oreAluminum, "Pickaxe", 2);
 		
 
 		initBlockRecipies();
