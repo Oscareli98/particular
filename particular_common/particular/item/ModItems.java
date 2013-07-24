@@ -1,6 +1,8 @@
 package particular.item;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import particular.lib.ItemIds;
 import particular.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -25,5 +27,10 @@ public class ModItems {
 		LanguageRegistry.addName(emptyStickWelder, "Stick Welder (Empty)");
 		LanguageRegistry.addName(stickWelder, "Stick Welder (Full)");
 		LanguageRegistry.addName(scientificJournal, "Scientific Journal");
+		
+		initItemRecipies();
+	}
+	public static void initItemRecipies(){
+		GameRegistry.addRecipe(new ItemStack(emptyStickWelder), new Object[] { "i  ", "   ", "   ", Character.valueOf('d'), Block.dirt, Character.valueOf('i'), Item.ingotIron});
 	}
 }
