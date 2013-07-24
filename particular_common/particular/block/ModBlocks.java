@@ -1,6 +1,7 @@
 package particular.block;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,8 +17,13 @@ public class ModBlocks {
 	public static Block tierTwoMachineHousing;
 	public static Block tierThreeMachineHousing;
 	public static Block hypersonicPiston;
+	
+	//Ore Instances
+	public static Block oreCopper;
+	public static Block oreTin;
 
 	public static void init(){
+		//Blocks
 		TierOneMachineHousing = new BlockTierOneMachineHousing(BlockIds.TIER_ONE_MACHINE_HOUSING);
 		tierTwoMachineHousing = new BlockTierTwoMachineHousing(BlockIds.TIER_TWO_MACHINE_HOUSING);
 		tierThreeMachineHousing = new BlockTierThreeMachineHousing(BlockIds.TIER_THREE_MACHINE_HOUSING);
@@ -39,6 +45,19 @@ public class ModBlocks {
 		MinecraftForge.setBlockHarvestLevel(tierThreeMachineHousing, "Pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(hypersonicPiston, "Pickaxe", 1);
 
+		//Ore
+		oreCopper = new BlockOreCopper(BlockIds.ORE_COPPER, Material.iron);
+		oreTin = new BlockOreTin(BlockIds.ORE_TIN, Material.iron);
+		
+		GameRegistry.registerBlock(oreCopper, Strings.BLOCK_ORE_COPPER_NAME);
+		GameRegistry.registerBlock(oreTin, Strings.BLOCK_ORE_TIN_NAME);
+		
+		LanguageRegistry.addName(oreCopper, "Copper Ore");
+		LanguageRegistry.addName(oreTin, "Tin Ore");
+		
+		MinecraftForge.setBlockHarvestLevel(oreCopper, "Pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(oreTin, "Pickaxe", 2);
+		
 
 		initBlockRecipies();
 	}

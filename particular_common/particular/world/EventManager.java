@@ -30,13 +30,14 @@ public class EventManager implements IWorldGenerator {
 	private void generateSurface(World world, Random random, int x, int z) {
 		// always make blockXpos x and blockZpos z, maxX 16 and maxZ 16, the rest are up to you.  Metadata is for blocks that use metadata, if no metadata is used set it to 0
 		
-		this.addOreSpawn(ModBlocks.hypersonicPiston, world, random, x, z, 16, 16, 6 + random.nextInt(7), 4, 20, 60);
+		this.addOreSpawn(ModBlocks.oreCopper, world, random, x, z, 16, 16, 6 + random.nextInt(7), 4, 20, 60);
+		this.addOreSpawn(ModBlocks.oreTin, world, random, x, z, 16, 16, 6 + random.nextInt(9), 4, 20, 60);
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {
 		// always make blockXpos x and blockZpos z, maxX 16 and maxZ 16, the rest are up to you.  Metadata is for blocks that use metadata, if no metadata is used set it to 0
 		
-		this.addNetherOreSpawn(ModBlocks.TierOneMachineHousing, 0, world, random, x, z, 16, 16, 6 + random.nextInt(7), 4, 20, 60);
+		this.addNetherOreSpawn(ModBlocks.oreCopper, 0, world, random, x, z, 16, 16, 6 + random.nextInt(7), 4, 20, 60);
 		
 	}
 
