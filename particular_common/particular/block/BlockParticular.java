@@ -13,20 +13,20 @@ public class BlockParticular extends Block {
 	public BlockParticular(int id, Material material) {
 
 		super(id, material);
-        this.setCreativeTab(Particular.tabsParticular);
+		this.setCreativeTab(Particular.tabsParticular);
 
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister iconRegister) {
-		
+
 		blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
 		func_111022_d(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
 	}
 
 	protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
-		
+
 		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
 	}
 

@@ -22,10 +22,10 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
 @NetworkMod(clientSideRequired=true, serverSideRequired=true)
 public class Particular {
-	
+
 	@Instance(Reference.MOD_ID)
 	public static Particular instance;
-	
+
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static CommonProxy proxy;
 
@@ -33,27 +33,26 @@ public class Particular {
 			CreativeTabs.getNextID(), Reference.MOD_ID);
 
 	EventManager eventmanager = new EventManager();
-	
+
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event){
 		//Register blocks & items
 		ModItems.init();
 		ModBlocks.init();
 	}
-	
+
 	@EventHandler
 	public void load(FMLInitializationEvent event){
 		//Register events
 		LanguageRegistry.instance().addStringLocalization("itemGroup.Particular", "Particular");
-		
 		GameRegistry.registerWorldGenerator(eventmanager);
 	}
-	
+
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event){
 		//Interact with other mods
 	}
-	
-	
-	
+
+
+
 }
