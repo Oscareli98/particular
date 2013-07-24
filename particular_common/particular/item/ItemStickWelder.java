@@ -20,7 +20,8 @@ public class ItemStickWelder extends ItemParticular {
 
 		if(itemStack.getItemDamage() >= 10){
 			itemStack.damageItem(1, entityPlayer);
-			itemStack = new ItemStack(ModItems.emptyStickWelder, 2, 0);
+			entityPlayer.inventory.addItemStackToInventory(new ItemStack(ModItems.emptyStickWelder, 1));
+			//System.out.println(itemStack.getDisplayName());
 		}
 		else{
 			itemStack.damageItem(1, entityPlayer);
