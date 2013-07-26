@@ -23,6 +23,82 @@ public class BlockHypersonicPiston extends BlockParticular {
 
 	}
 
+	@SideOnly(Side.CLIENT) 
+	protected Icon bottom;    
+	@SideOnly(Side.CLIENT) 
+	protected Icon top;
+//	@SideOnly(Side.CLIENT) 
+//	protected Icon North;
+//	@SideOnly(Side.CLIENT) 
+//	protected Icon South;
+//	@SideOnly(Side.CLIENT)
+//	protected Icon West;
+//	@SideOnly(Side.CLIENT)
+//	protected Icon East;
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerIcons(IconRegister iconRegister) {
+		System.out.println();
+		this.blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+		this.bottom = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "tierOneMachineHousing"));
+		this.top = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "1" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+//		this.North = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "2" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+//		this.South = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "3" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+//		this.West = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "4" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+//		this.East = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "5" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public Icon getIcon(int side, int meta) {
+		int k = getOrientation(meta);
+		return k > 5 ? this.top : (side == k ? (!isExtended(meta) && this.minX <= 0.0D && this.minY <= 0.0D && this.minZ <= 0.0D && this.maxX >= 1.0D && this.maxY >= 1.0D && this.maxZ >= 1.0D ? this.top : this.blockIcon) : (side == Facing.oppositeSide[k] ? this.bottom : this.blockIcon));
+		//		if (meta == 0 && side == 0)
+		//			return bottom;
+		//		if (meta == 1 && side == 1)
+		//			return top;
+		//		//		if (side == 2)
+		//		//			return North;
+		//		//		if (side == 3)
+		//		//			return South;
+		//		//		if (side == 4)
+		//		//			return West;
+		//		//		if (side == 5)
+		//		//			return East;
+		//		if (meta == 3 && side == 3)
+		//			return South;
+		//		if (meta == 2 && side == 2)
+		//			return North;
+		//		if (meta == 4 && side == 4)
+		//			return West;
+		//		if (meta == 5 && side == 5)
+		//			return East;
+		//		return blockIcon;
+	}
+
+	
+	public static int getOrientation(int par0) {
+		return par0 & 7;
+	}
+
+	public static boolean isExtended(int par0) {
+		return (par0 & 8) != 0;
+	}
+    
+    public int getRenderType()
+    {
+        return 16;
+    }
+
+
+	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack) {
+		int l = determineOrientation(par1World, par2, par3, par4, par5EntityLivingBase);
+		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+
+
+	}
+	
 	public static int determineOrientation(World par0World, int par1, int par2, int par3, EntityLivingBase par4EntityLivingBase) {
 		if (MathHelper.abs((float)par4EntityLivingBase.posX - (float)par1) < 2.0F && MathHelper.abs((float)par4EntityLivingBase.posZ - (float)par3) < 2.0F)
 		{
@@ -40,77 +116,4 @@ public class BlockHypersonicPiston extends BlockParticular {
 		int l = MathHelper.floor_double((double)(par4EntityLivingBase.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
 		return l == 0 ? 2 : (l == 1 ? 5 : (l == 2 ? 3 : (l == 3 ? 4 : 0)));
 	}
-	@SideOnly(Side.CLIENT) 
-	protected Icon bottom;    
-	@SideOnly(Side.CLIENT) 
-	protected Icon top;
-	@SideOnly(Side.CLIENT) 
-	protected Icon North;
-	@SideOnly(Side.CLIENT) 
-	protected Icon South;
-	@SideOnly(Side.CLIENT)
-	protected Icon West;
-	@SideOnly(Side.CLIENT)
-	protected Icon East;
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerIcons(IconRegister iconRegister) {
-		System.out.println();
-		this.blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-		this.bottom = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "0" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-		this.top = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "1" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-		this.North = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "2" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-		this.South = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "3" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-		this.West = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "4" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-		this.East = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "5" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public Icon getIcon(int side, int meta) {
-		int k = getOrientation(meta);
-		return k > 5 ? this.top : (side == k ? (!isExtended(meta) && this.minX <= 0.0D && this.minY <= 0.0D && this.minZ <= 0.0D && this.maxX >= 1.0D && this.maxY >= 1.0D && this.maxZ >= 1.0D ? this.top : this.West) : (side == Facing.oppositeSide[k] ? this.bottom : this.blockIcon));
-//		if (meta == 0 && side == 0)
-//			return bottom;
-//		if (meta == 1 && side == 1)
-//			return top;
-//		//		if (side == 2)
-//		//			return North;
-//		//		if (side == 3)
-//		//			return South;
-//		//		if (side == 4)
-//		//			return West;
-//		//		if (side == 5)
-//		//			return East;
-//		if (meta == 3 && side == 3)
-//			return South;
-//		if (meta == 2 && side == 2)
-//			return North;
-//		if (meta == 4 && side == 4)
-//			return West;
-//		if (meta == 5 && side == 5)
-//			return East;
-//		return blockIcon;
-	}
-	
-    public static int getOrientation(int par0)
-    {
-        return par0 & 7;
-    }
-    
-    public static boolean isExtended(int par0)
-    {
-        return (par0 & 8) != 0;
-    }
-
-
-	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack)
-	{
-		int l = determineOrientation(par1World, par2, par3, par4, par5EntityLivingBase);
-		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-
-
-	}
-
 }
