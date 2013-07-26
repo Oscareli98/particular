@@ -33,7 +33,7 @@ public class BlockHypersonicPiston extends BlockParticular {
 		System.out.println();
 		this.blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
 		this.bottom = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "tierOneMachineHousing"));
-		this.top = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "1" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
+		this.top = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "top" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
 	}
 
 	@SideOnly(Side.CLIENT)
