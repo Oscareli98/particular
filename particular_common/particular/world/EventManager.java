@@ -2,11 +2,11 @@ package particular.world;
 
 import java.util.Random;
 
-import particular.block.ModBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import particular.block.ModBlocks;
 import cpw.mods.fml.common.IWorldGenerator;
 
 public class EventManager implements IWorldGenerator {

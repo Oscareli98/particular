@@ -1,7 +1,7 @@
 package particular.block;
 
-import particular.lib.Strings;
 import net.minecraft.block.material.Material;
+import particular.lib.Strings;
 
 public class BlockOreCopper extends BlockParticular{
 

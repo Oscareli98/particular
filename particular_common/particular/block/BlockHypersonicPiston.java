@@ -1,19 +1,17 @@
 package particular.block;
 
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ForgeDirection;
 import particular.lib.Reference;
 import particular.lib.Strings;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockHypersonicPiston extends BlockParticular {
 
@@ -58,7 +56,7 @@ public class BlockHypersonicPiston extends BlockParticular {
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
 		System.out.println();
-		this.blockIcon = iconRegister.registerIcon("stonebrick");
+		this.blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
 		this.bottom = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "0" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
 		this.top = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "1" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
 		this.North = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "2" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
