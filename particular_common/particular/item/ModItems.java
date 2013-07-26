@@ -14,19 +14,32 @@ public class ModItems {
 	public static Item emptyStickWelder;
 	public static Item stickWelder;
 	public static Item scientificJournal;
+	public static Item ingotCopper;
+	public static Item ingotTin;
+	public static Item ingotAluminum;
 	
 	public static void init() {
 		emptyStickWelder = new ItemEmptyStickWelder(ItemIds.EMPTY_STICK_WELDER);
 		stickWelder = new ItemStickWelder(ItemIds.STICK_WELDER);
 		scientificJournal = new ItemScientificJournal(ItemIds.SCIENTIFIC_JOURNAL);
+		ingotCopper = new ItemIngotCopper(ItemIds.INGOT_COPPER);
+		ingotTin = new ItemIngotTin(ItemIds.INGOT_TIN);
+		ingotAluminum = new ItemIngotAluminum(ItemIds.INGOT_ALUMINUM);
 		
 		GameRegistry.registerItem(emptyStickWelder, Strings.EMPTY_STICK_WELDER_NAME);
 		GameRegistry.registerItem(stickWelder, Strings.STICK_WELDER_NAME);
 		GameRegistry.registerItem(scientificJournal, Strings.SCIENTIFIC_JOURNAL_NAME);
+		GameRegistry.registerItem(ingotCopper, Strings.INGOT_COPPER_NAME);
+		GameRegistry.registerItem(ingotTin, Strings.INGOT_TIN_NAME);
+		GameRegistry.registerItem(ingotAluminum, Strings.INGOT_ALUMINUM_NAME);
 		
 		LanguageRegistry.addName(emptyStickWelder, "Stick Welder (Empty)");
 		LanguageRegistry.addName(stickWelder, "Stick Welder (Full)");
 		LanguageRegistry.addName(scientificJournal, "Scientific Journal");
+		LanguageRegistry.addName(ingotCopper, "Copper Ingot");
+		LanguageRegistry.addName(ingotTin, "Tin Ingot");
+		LanguageRegistry.addName(ingotAluminum, "Aluminum Ingot");
+		
 		
 		initItemRecipies();
 	}

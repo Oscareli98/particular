@@ -7,14 +7,22 @@ public class Strings {
 	public static final String TIER_TWO_MACHINE_HOUSING_NAME = "tierTwoMachineHousing";
 	public static final String TIER_THREE_MACHINE_HOUSING_NAME = "tierThreeMachineHousing";
 	public static final String HYPERSONIC_PISTON_NAME = "hypersonicPiston";
+	public static final String BLOCK_COPPER_NAME = "blockCopper";
+	public static final String BLOCK_TIN_NAME = "blockTin";
+	public static final String BLOCK_ALUMINUM_NAME = "blockAluminum";
 	
 	//Ore related constants
-	public static final String BLOCK_ORE_COPPER_NAME = "oreCopper";
-	public static final String BLOCK_ORE_TIN_NAME = "oreTIN";
-	public static final String BLOCK_ORE_ALUMINUM_NAME = "oreAluminum";
+	public static final String ORE_COPPER_NAME = "oreCopper";
+	public static final String ORE_TIN_NAME = "oreTin";
+	public static final String ORE_ALUMINUM_NAME = "oreAluminum";
 
 	//Item related constants
 	public static final String EMPTY_STICK_WELDER_NAME = "emptyStickWelder";
 	public static final String STICK_WELDER_NAME = "stickWelder";
 	public static final String SCIENTIFIC_JOURNAL_NAME = "scientificJournal";
+	
+	//Ingot Related Constants
+	public static final String INGOT_COPPER_NAME = "ingotCopper";
+	public static final String INGOT_TIN_NAME = "ingotTin";
+	public static final String INGOT_ALUMINUM_NAME = "ingotAluminum";
 }

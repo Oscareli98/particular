@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 
 public class BlockOreCopper extends BlockParticular{
 
-	public BlockOreCopper(int id, Material material) {
-		super(id, material);
-		this.setUnlocalizedName(Strings.BLOCK_ORE_COPPER_NAME);
+	public BlockOreCopper(int id) {
+		super(id, Material.rock);
+		this.setUnlocalizedName(Strings.ORE_COPPER_NAME);
 		this.setHardness(1.5F);
 	}
 	

@@ -5,9 +5,9 @@ import net.minecraft.block.material.Material;
 
 public class BlockOreTin extends BlockParticular{
 
-	public BlockOreTin(int id, Material material) {
-		super(id, material);
-		this.setUnlocalizedName(Strings.BLOCK_ORE_TIN_NAME);
+	public BlockOreTin(int id) {
+		super(id, Material.rock);
+		this.setUnlocalizedName(Strings.ORE_TIN_NAME);
 		this.setHardness(1.5F);
 	}
 

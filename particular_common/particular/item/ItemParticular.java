@@ -13,7 +13,7 @@ public class ItemParticular extends Item {
     public ItemParticular(int id) {
 
         super(id - Reference.SHIFTED_ID_RANGE_CORRECTION);
-        maxStackSize = 1;
+        this.setMaxStackSize(64);
         this.setCreativeTab(Particular.tabsParticular);
     }
 
