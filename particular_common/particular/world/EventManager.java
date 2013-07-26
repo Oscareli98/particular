@@ -30,9 +30,9 @@ public class EventManager implements IWorldGenerator {
 	private void generateSurface(World world, Random random, int x, int z) {
 		// always make blockXpos x and blockZpos z, maxX 16 and maxZ 16, the rest are up to you.  Metadata is for blocks that use metadata, if no metadata is used set it to 0
 
-		this.addOreSpawn(ModBlocks.oreCopper, world, random, x, z, 16, 16, 7 + random.nextInt(5), 4, 20, 60);
-		this.addOreSpawn(ModBlocks.oreTin, world, random, x, z, 16, 16, 7 + random.nextInt(5), 4, 20, 60);
-		this.addOreSpawn(ModBlocks.oreAluminum, world, random, x, z, 16, 16, 7 + random.nextInt(5), 4, 20, 60);
+		this.addOreSpawn(ModBlocks.oreCopper, world, random, x, z, 16, 16, 15, 3, 20, 60);
+		this.addOreSpawn(ModBlocks.oreTin, world, random, x, z, 16, 16, 7, 4, 16, 50);
+		this.addOreSpawn(ModBlocks.oreAluminum, world, random, x, z, 16, 16, 6, 8, 40, 80);
 	}
 
 	private void generateNether(World world, Random random, int x, int z) {
@@ -43,7 +43,7 @@ public class EventManager implements IWorldGenerator {
 	}
 
 	public void addOreSpawn(Block block, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
-		int maxPossY = minY + (maxY - 1);
+		//int maxPossY = minY + (maxY - 1);
 		assert maxY > minY: "The maximum Y must be greater than the Minimum Y";
 		assert maxX > 0 && maxX <= 16: "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
 		assert minY > 0: "addOreSpawn: The Minimum Y must be greater than 0";
@@ -61,7 +61,7 @@ public class EventManager implements IWorldGenerator {
 	}
 
 	public void addNetherOreSpawn(Block block, int metadata, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
-		int maxPossY = minY + (maxY - 1);
+		//int maxPossY = minY + (maxY - 1);
 		assert maxY > minY: "The maximum Y must be greater than the Minimum Y";
 		assert maxX > 0 && maxX <= 16: "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
 		assert minY > 0: "addOreSpawn: The Minimum Y must be greater than 0";
@@ -79,7 +79,7 @@ public class EventManager implements IWorldGenerator {
 	}
 
 	public void addEndOreSpawn(Block block, int metadata, World world, Random random, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
-		int maxPossY = minY + (maxY - 1);
+		//int maxPossY = minY + (maxY - 1);
 		assert maxY > minY: "The maximum Y must be greater than the Minimum Y";
 		assert maxX > 0 && maxX <= 16: "addOreSpawn: The Maximum X must be greater than 0 and less than 16";
 		assert minY > 0: "addOreSpawn: The Minimum Y must be greater than 0";
