@@ -5,6 +5,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Facing;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -68,28 +69,40 @@ public class BlockHypersonicPiston extends BlockParticular {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Icon getIcon(int side, int meta) {
-		if (meta == 0 && side == 0)
-			return bottom;
-		if (meta == 1 && side == 1)
-			return top;
-		//		if (side == 2)
-		//			return North;
-		//		if (side == 3)
-		//			return South;
-		//		if (side == 4)
-		//			return West;
-		//		if (side == 5)
-		//			return East;
-		if (meta == 3 && side == 3)
-			return South;
-		if (meta == 2 && side == 2)
-			return North;
-		if (meta == 4 && side == 4)
-			return West;
-		if (meta == 5 && side == 5)
-			return East;
-		return blockIcon;
+		int k = getOrientation(meta);
+		return k > 5 ? this.top : (side == k ? (!isExtended(meta) && this.minX <= 0.0D && this.minY <= 0.0D && this.minZ <= 0.0D && this.maxX >= 1.0D && this.maxY >= 1.0D && this.maxZ >= 1.0D ? this.top : this.West) : (side == Facing.oppositeSide[k] ? this.bottom : this.blockIcon));
+//		if (meta == 0 && side == 0)
+//			return bottom;
+//		if (meta == 1 && side == 1)
+//			return top;
+//		//		if (side == 2)
+//		//			return North;
+//		//		if (side == 3)
+//		//			return South;
+//		//		if (side == 4)
+//		//			return West;
+//		//		if (side == 5)
+//		//			return East;
+//		if (meta == 3 && side == 3)
+//			return South;
+//		if (meta == 2 && side == 2)
+//			return North;
+//		if (meta == 4 && side == 4)
+//			return West;
+//		if (meta == 5 && side == 5)
+//			return East;
+//		return blockIcon;
 	}
+	
+    public static int getOrientation(int par0)
+    {
+        return par0 & 7;
+    }
+    
+    public static boolean isExtended(int par0)
+    {
+        return (par0 & 8) != 0;
+    }
 
 
 	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack)
