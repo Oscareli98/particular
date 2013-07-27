@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import particular.item.ModItems;
 import particular.lib.BlockIds;
 import particular.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -82,7 +83,7 @@ public class ModBlocks {
 	}
 
 	public static void initBlockRecipies(){
-		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "iii", "d d", "iii", Character.valueOf('d'), Block.dirt, Character.valueOf('i'), Item.ingotIron});
+		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "iii", "i i", "iii", Character.valueOf('i'), ModItems.ingotAluminum});
 	}
 
 }

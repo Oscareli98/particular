@@ -3,6 +3,8 @@ package particular.item;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import particular.block.ModBlocks;
+import particular.lib.BlockIds;
 import particular.lib.ItemIds;
 import particular.lib.Strings;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -42,8 +44,15 @@ public class ModItems {
 		
 		
 		initItemRecipies();
+		initSmeltingRecipies();
 	}
 	public static void initItemRecipies(){
 		GameRegistry.addRecipe(new ItemStack(emptyStickWelder), new Object[] { "i  ", "   ", "   ", Character.valueOf('d'), Block.dirt, Character.valueOf('i'), Item.ingotIron});
+	}
+	
+	public static void initSmeltingRecipies() {
+		GameRegistry.addSmelting(BlockIds.ORE_ALUMINUM, new ItemStack(ingotAluminum), 1.0f);
+		GameRegistry.addSmelting(BlockIds.ORE_COPPER, new ItemStack(ingotCopper), 1.0f);
+		GameRegistry.addSmelting(BlockIds.ORE_TIN, new ItemStack(ingotTin), 1.0f);
 	}
 }
