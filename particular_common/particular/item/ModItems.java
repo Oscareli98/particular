@@ -3,7 +3,6 @@ package particular.item;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import particular.block.ModBlocks;
 import particular.lib.BlockIds;
 import particular.lib.ItemIds;
 import particular.lib.Strings;

@@ -45,9 +45,9 @@ public class ModBlocks {
 		GameRegistry.registerBlock(blockAluminum, Strings.BLOCK_ALUMINUM_NAME);
 
 
-		LanguageRegistry.addName(TierOneMachineHousing, "Machine Housing 1");
-		LanguageRegistry.addName(tierTwoMachineHousing, "Machine Housing 2");
-		LanguageRegistry.addName(tierThreeMachineHousing, "Machine Housing 3");
+		LanguageRegistry.addName(TierOneMachineHousing, "Machine Housing");
+		LanguageRegistry.addName(tierTwoMachineHousing, "Machine Housing");
+		LanguageRegistry.addName(tierThreeMachineHousing, "Machine Housing");
 		LanguageRegistry.addName(hypersonicPiston, "Hypersonic Piston");
 		LanguageRegistry.addName(blockCopper, "Copper Block");
 		LanguageRegistry.addName(blockTin, "Tin Block");
@@ -83,7 +83,19 @@ public class ModBlocks {
 	}
 
 	public static void initBlockRecipies(){
-		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "iii", "i i", "iii", Character.valueOf('i'), ModItems.ingotAluminum});
+		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "iii", "iri", "iii", 
+			Character.valueOf('i'), ModItems.ingotAluminum, 
+			Character.valueOf('r'), Item.redstone
+		});
+		GameRegistry.addRecipe(new ItemStack(blockCopper), new Object[] { "iii", "iii", "iii", 
+			Character.valueOf('i'), ModItems.ingotCopper, 
+		});
+		GameRegistry.addRecipe(new ItemStack(blockTin), new Object[] { "iii", "iii", "iii", 
+			Character.valueOf('i'), ModItems.ingotTin, 
+		});
+		GameRegistry.addRecipe(new ItemStack(blockAluminum), new Object[] { "iii", "iii", "iii", 
+			Character.valueOf('i'), ModItems.ingotAluminum, 
+		});
 	}
 
 }
