@@ -10,6 +10,7 @@ public class Strings {
 	public static final String BLOCK_COPPER_NAME = "blockCopper";
 	public static final String BLOCK_TIN_NAME = "blockTin";
 	public static final String BLOCK_ALUMINUM_NAME = "blockAluminum";
+	public static final String SMASHER_CONTROLLER_NAME = "smasherController";
 	
 	//Ore related constants
 	public static final String ORE_COPPER_NAME = "oreCopper";
@@ -25,4 +26,9 @@ public class Strings {
 	public static final String INGOT_COPPER_NAME = "ingotCopper";
 	public static final String INGOT_TIN_NAME = "ingotTin";
 	public static final String INGOT_ALUMINUM_NAME = "ingotAluminum";
+	
+	//NBT Related Constants
+	public static final String NBT_TE_STATE_KEY = "teState";
+    public static final String NBT_TE_CUSTOM_NAME = "CustomName";
+    public static final String NBT_TE_DIRECTION_KEY = "teDirection";
 }
