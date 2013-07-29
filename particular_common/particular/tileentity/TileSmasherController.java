@@ -71,7 +71,7 @@ public class TileSmasherController extends TileParticular implements IInventory{
 
 	@Override
 	public int getInventoryStackLimit() {
-		return 63;
+		return 65000;
 	}
 
 	@Override

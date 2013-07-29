@@ -10,6 +10,7 @@ public class BlockIds {
 	public static int BLOCK_COPPER_DEFAULT = 3504;
 	public static int BLOCK_TIN_DEFAULT = 3505;
 	public static int BLOCK_ALUMINUM_DEFAULT = 3506;
+	public static int SMASHER_CONTROLLER_DEFAULT = 3507;
 
 	/* Current block ids */
 	public static int TIER_ONE_MACHINE_HOUSING = TIER_ONE_MACHINE_HOUSING_DEFAULT;
@@ -19,6 +20,8 @@ public class BlockIds {
 	public static int BLOCK_COPPER = BLOCK_COPPER_DEFAULT;
 	public static int BLOCK_TIN = BLOCK_TIN_DEFAULT;
 	public static int BLOCK_ALUMINUM = BLOCK_ALUMINUM_DEFAULT;
+	public static int SMASHER_CONTROLLER = SMASHER_CONTROLLER_DEFAULT;
+
 	
 	/* Default Ore ids */
 	public static int ORE_COPPER_DEFAULT = 4000;

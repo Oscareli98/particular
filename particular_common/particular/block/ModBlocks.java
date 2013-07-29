@@ -20,6 +20,7 @@ public class ModBlocks {
 	public static Block blockCopper;
 	public static Block blockTin;
 	public static Block blockAluminum;
+	public static Block smasherController;
 	
 	//Ore Instances
 	public static Block oreCopper;
@@ -35,6 +36,7 @@ public class ModBlocks {
 		blockCopper = new BlockCopper(BlockIds.BLOCK_COPPER);
 		blockTin = new BlockTin(BlockIds.BLOCK_TIN);
 		blockAluminum = new BlockAluminum(BlockIds.BLOCK_ALUMINUM);
+		smasherController = new BlockSmasherController(BlockIds.SMASHER_CONTROLLER);
 
 		GameRegistry.registerBlock(TierOneMachineHousing, Strings.TIER_ONE_MACHINE_HOUSING_NAME);
 		GameRegistry.registerBlock(tierTwoMachineHousing, Strings.TIER_TWO_MACHINE_HOUSING_NAME);
@@ -43,6 +45,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(blockCopper, Strings.BLOCK_COPPER_NAME);
 		GameRegistry.registerBlock(blockTin, Strings.BLOCK_TIN_NAME);
 		GameRegistry.registerBlock(blockAluminum, Strings.BLOCK_ALUMINUM_NAME);
+		GameRegistry.registerBlock(smasherController, Strings.SMASHER_CONTROLLER_NAME);
 
 
 		LanguageRegistry.addName(TierOneMachineHousing, "Machine Housing");
@@ -52,6 +55,7 @@ public class ModBlocks {
 		LanguageRegistry.addName(blockCopper, "Copper Block");
 		LanguageRegistry.addName(blockTin, "Tin Block");
 		LanguageRegistry.addName(blockAluminum, "Aluminum Block");
+		LanguageRegistry.addName(smasherController, "Smasher Controller");
 
 		MinecraftForge.setBlockHarvestLevel(TierOneMachineHousing, "Pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(tierTwoMachineHousing, "Pickaxe", 2);
@@ -60,6 +64,7 @@ public class ModBlocks {
 		MinecraftForge.setBlockHarvestLevel(blockCopper, "Pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(blockTin, "Pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(blockAluminum, "Pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(smasherController, "Hoe", 6);
 
 		//Ore
 		oreCopper = new BlockOreCopper(BlockIds.ORE_COPPER);
