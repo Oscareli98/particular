@@ -15,6 +15,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import particular.Particular;
+import particular.lib.BlockIds;
 import particular.lib.Reference;
 import particular.lib.Strings;
 import particular.tileentity.TileSmasherController;
@@ -50,13 +51,65 @@ public class BlockSmasherController extends BlockContainerParticular {
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float a, float b, float c) {
 		TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
-		if(tileEntity == null || player.isSneaking()){
+		if (checkMultiBlock(world, x, y, z, player, metadata, a, b, c) == true) {
+			if(tileEntity == null || player.isSneaking()){
+				return false;
+			}
+			player.openGui(Particular.instance, 0, world, x, y, z);
+			return true;
+		} else {
 			return false;
 		}
-		player.openGui(Particular.instance, 0, world, x, y, z);
-		return true;
 	}
 
+	public boolean checkMultiBlock(World world, int x, int y, int z, EntityPlayer player, int metadata, float a, float b, float c) {
+		boolean allLayersTrue = true;
+		int xcheck = x;
+		int ycheck = y;
+		int zcheck = z;
+		int checkBlock = BlockIds.TIER_ONE_MACHINE_HOUSING;
+
+		if (world.getBlockId(x, y, z - 1) == a && world.getBlockId(x , y + 1, z - 1) == 0) {
+			zcheck--;
+			System.out.println("z--");
+		} else if (world.getBlockId(x, y, z + 1 ) == checkBlock && world.getBlockId(x , y + 1, z + 1) == 0) {
+			zcheck++;
+			System.out.println("z++");
+		} else if (world.getBlockId(x + 1, y, z) == checkBlock && world.getBlockId(x + 1, y + 1, z) == 0) {
+			xcheck++;
+			System.out.println("x++");
+		} else if (world.getBlockId(x - 1, y, z) == checkBlock && world.getBlockId(x - 1, y + 1, z) == 0) {
+			xcheck--;
+			System.out.println("x--");
+		}
+
+		for (int i = 0; i < 4; i++) {
+			ycheck = ycheck + i;
+			if ((world.getBlockId(xcheck, ycheck, zcheck) == checkBlock || world.getBlockId(xcheck, ycheck, zcheck) == 0)
+					&& world.getBlockId(xcheck + 1, ycheck, zcheck + 1) == checkBlock
+					&& world.getBlockId(xcheck - 1, ycheck, zcheck + 1) == checkBlock
+					&& world.getBlockId(xcheck + 1, ycheck, zcheck - 1) == checkBlock
+					&& world.getBlockId(xcheck - 1, ycheck, zcheck - 1) == checkBlock
+					&& (world.getBlockId(xcheck + 1, ycheck, zcheck) == checkBlock || world.getBlockId(xcheck + 1, ycheck, zcheck) == BlockIds.SMASHER_CONTROLLER)
+					&& (world.getBlockId(xcheck - 1, ycheck, zcheck) == checkBlock || world.getBlockId(xcheck - 1, ycheck, zcheck) == BlockIds.SMASHER_CONTROLLER)
+					&& (world.getBlockId(xcheck, ycheck, zcheck + 1) == checkBlock || world.getBlockId(xcheck, ycheck, zcheck + 1) == BlockIds.SMASHER_CONTROLLER)
+					&& (world.getBlockId(xcheck, ycheck, zcheck - 1) == checkBlock || world.getBlockId(xcheck, ycheck, zcheck - 1) == BlockIds.SMASHER_CONTROLLER)
+					) {
+			} else {
+				System.out.println("nope not working");
+				allLayersTrue = false;
+				System.out.println(i);
+			}
+		}
+		
+		if (allLayersTrue == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
 	@Override
 	public void breakBlock(World world, int x, int y, int z, int a, int b) {
 		dropItems(world, x, y, z);

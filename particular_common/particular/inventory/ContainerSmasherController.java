@@ -12,8 +12,8 @@ public class ContainerSmasherController extends Container {
 
 	protected TileEntity tileEntity;
 
-	private final int PLAYER_INVENTORY_ROWS = 3;
-	private final int PLAYER_INVENTORY_COLUMNS = 9;
+	//private final int PLAYER_INVENTORY_ROWS = 3;
+	//private final int PLAYER_INVENTORY_COLUMNS = 9;
 
 	public ContainerSmasherController(InventoryPlayer inventoryPlayer, TileSmasherController te) {
 		tileEntity = te;
