@@ -13,7 +13,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public class ModBlocks {
 
 	//Mod Block Instances
-	public static Block TierOneMachineHousing;
+	public static Block tierOneMachineHousing;
 	public static Block tierTwoMachineHousing;
 	public static Block tierThreeMachineHousing;
 	public static Block hypersonicPiston;
@@ -29,7 +29,7 @@ public class ModBlocks {
 
 	public static void init(){
 		//Blocks
-		TierOneMachineHousing = new BlockTierOneMachineHousing(BlockIds.TIER_ONE_MACHINE_HOUSING);
+		tierOneMachineHousing = new BlockTierOneMachineHousing(BlockIds.TIER_ONE_MACHINE_HOUSING);
 		tierTwoMachineHousing = new BlockTierTwoMachineHousing(BlockIds.TIER_TWO_MACHINE_HOUSING);
 		tierThreeMachineHousing = new BlockTierThreeMachineHousing(BlockIds.TIER_THREE_MACHINE_HOUSING);
 		hypersonicPiston = new BlockHypersonicPiston(BlockIds.HYPERSONIC_PISTION);
@@ -38,7 +38,7 @@ public class ModBlocks {
 		blockAluminum = new BlockAluminum(BlockIds.BLOCK_ALUMINUM);
 		smasherController = new BlockSmasherController(BlockIds.SMASHER_CONTROLLER);
 
-		GameRegistry.registerBlock(TierOneMachineHousing, Strings.TIER_ONE_MACHINE_HOUSING_NAME);
+		GameRegistry.registerBlock(tierOneMachineHousing, Strings.TIER_ONE_MACHINE_HOUSING_NAME);
 		GameRegistry.registerBlock(tierTwoMachineHousing, Strings.TIER_TWO_MACHINE_HOUSING_NAME);
 		GameRegistry.registerBlock(tierThreeMachineHousing, Strings.TIER_THREE_MACHINE_HOUSING_NAME);
 		GameRegistry.registerBlock(hypersonicPiston, Strings.HYPERSONIC_PISTON_NAME);
@@ -48,7 +48,7 @@ public class ModBlocks {
 		GameRegistry.registerBlock(smasherController, Strings.SMASHER_CONTROLLER_NAME);
 
 
-		LanguageRegistry.addName(TierOneMachineHousing, "Machine Housing");
+		LanguageRegistry.addName(tierOneMachineHousing, "Machine Housing");
 		LanguageRegistry.addName(tierTwoMachineHousing, "Machine Housing");
 		LanguageRegistry.addName(tierThreeMachineHousing, "Machine Housing");
 		LanguageRegistry.addName(hypersonicPiston, "Hypersonic Piston");
@@ -57,7 +57,7 @@ public class ModBlocks {
 		LanguageRegistry.addName(blockAluminum, "Aluminum Block");
 		LanguageRegistry.addName(smasherController, "Smasher Controller");
 
-		MinecraftForge.setBlockHarvestLevel(TierOneMachineHousing, "Pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(tierOneMachineHousing, "Pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(tierTwoMachineHousing, "Pickaxe", 2);
 		MinecraftForge.setBlockHarvestLevel(tierThreeMachineHousing, "Pickaxe", 3);
 		MinecraftForge.setBlockHarvestLevel(hypersonicPiston, "Pickaxe", 1);
@@ -88,7 +88,7 @@ public class ModBlocks {
 	}
 
 	public static void initBlockRecipies(){
-		GameRegistry.addRecipe(new ItemStack(TierOneMachineHousing), new Object[] { "iii", "iri", "iii", 
+		GameRegistry.addRecipe(new ItemStack(tierOneMachineHousing), new Object[] { "iii", "iri", "iii", 
 			Character.valueOf('i'), ModItems.ingotAluminum, 
 			Character.valueOf('r'), Item.redstone
 		});

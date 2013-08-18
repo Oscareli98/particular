@@ -67,49 +67,76 @@ public class BlockSmasherController extends BlockContainerParticular {
 		int xcheck = x;
 		int ycheck = y;
 		int zcheck = z;
-		int checkBlock = BlockIds.TIER_ONE_MACHINE_HOUSING;
+		int checkBlock;
+		int tierOne = BlockIds.TIER_ONE_MACHINE_HOUSING;
+		int numOfThis = 0;
 
-		if (world.getBlockId(x, y, z - 1) == a && world.getBlockId(x , y + 1, z - 1) == 0) {
-			zcheck--;
-			System.out.println("z--");
-		} else if (world.getBlockId(x, y, z + 1 ) == checkBlock && world.getBlockId(x , y + 1, z + 1) == 0) {
-			zcheck++;
-			System.out.println("z++");
-		} else if (world.getBlockId(x + 1, y, z) == checkBlock && world.getBlockId(x + 1, y + 1, z) == 0) {
-			xcheck++;
-			System.out.println("x++");
-		} else if (world.getBlockId(x - 1, y, z) == checkBlock && world.getBlockId(x - 1, y + 1, z) == 0) {
+		if (world.getBlockId(x, y, z - 1) == tierOne && world.getBlockId(x , y + 1, z - 1) == 0) {
 			xcheck--;
+			System.out.println("z--");
+		} else if (world.getBlockId(x, y, z + 1 ) == tierOne && world.getBlockId(x , y + 1, z + 1) == 0) {
+			zcheck = zcheck - 2;
+			xcheck--;
+			System.out.println("z++");
+		} else if (world.getBlockId(x + 1, y, z) == tierOne && world.getBlockId(x + 1, y + 1, z) == 0) {
+			xcheck = xcheck - 2;
+			zcheck--;
+			System.out.println("x++");
+		} else if (world.getBlockId(x - 1, y, z) == tierOne && world.getBlockId(x - 1, y + 1, z) == 0) {
+			zcheck--;
 			System.out.println("x--");
 		}
 
-		for (int i = 0; i < 4; i++) {
-			ycheck = ycheck + i;
-			if ((world.getBlockId(xcheck, ycheck, zcheck) == checkBlock || world.getBlockId(xcheck, ycheck, zcheck) == 0)
-					&& world.getBlockId(xcheck + 1, ycheck, zcheck + 1) == checkBlock
-					&& world.getBlockId(xcheck - 1, ycheck, zcheck + 1) == checkBlock
-					&& world.getBlockId(xcheck + 1, ycheck, zcheck - 1) == checkBlock
-					&& world.getBlockId(xcheck - 1, ycheck, zcheck - 1) == checkBlock
-					&& (world.getBlockId(xcheck + 1, ycheck, zcheck) == checkBlock || world.getBlockId(xcheck + 1, ycheck, zcheck) == BlockIds.SMASHER_CONTROLLER)
-					&& (world.getBlockId(xcheck - 1, ycheck, zcheck) == checkBlock || world.getBlockId(xcheck - 1, ycheck, zcheck) == BlockIds.SMASHER_CONTROLLER)
-					&& (world.getBlockId(xcheck, ycheck, zcheck + 1) == checkBlock || world.getBlockId(xcheck, ycheck, zcheck + 1) == BlockIds.SMASHER_CONTROLLER)
-					&& (world.getBlockId(xcheck, ycheck, zcheck - 1) == checkBlock || world.getBlockId(xcheck, ycheck, zcheck - 1) == BlockIds.SMASHER_CONTROLLER)
-					) {
-			} else {
-				System.out.println("nope not working");
-				allLayersTrue = false;
-				System.out.println(i);
+		for (int i = 0; i < 4; i++) {  // starts on the zero layer and works up to the top, there are nine statements below to check the nine blocks
+			ycheck = y + i;
+			for (int j = 0; j < 3; j++) {
+				xcheck = x + j;
+				for (int k = 0; k < 3; k++) {
+					zcheck = z + k;
+					checkBlock = world.getBlockId(xcheck, ycheck, zcheck);
+					switch(checkBlock) {
+						case 0:
+							if ((i == 2 || i == 3) && j == 2 && z == 2) {
+								// leave blank
+							} else {
+								allLayersTrue = false;
+							}
+							break;
+						default:
+							if (checkBlock == tierOne) {
+								break;
+							} else if (checkBlock == BlockIds.SMASHER_CONTROLLER) {
+								numOfThis++;
+								break;
+							} else {
+								allLayersTrue = false;
+								break;
+							}
+					}
+				}
 			}
+
+			if (numOfThis < 1) {
+				allLayersTrue = false;
+			}
+
+			//			if (!(world.getBlockId(xcheck, ycheck, zcheck) == tierOne || world.getBlockId(xcheck, ycheck, zcheck) == 0)) {
+			//				// error
+			//			} else {
+			//				// do 
+			//			
+			//				System.out.println("nope not working");
+			//				allLayersTrue = false;
+			//				System.out.println(i);
+			//			}
 		}
-		
-		if (allLayersTrue == true) {
-			return true;
-		} else {
-			return false;
-		}
+
+		return allLayersTrue;
 	}
-	
-	
+
+
+
+
 	@Override
 	public void breakBlock(World world, int x, int y, int z, int a, int b) {
 		dropItems(world, x, y, z);
