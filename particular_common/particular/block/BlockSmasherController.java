@@ -50,11 +50,13 @@ public class BlockSmasherController extends BlockContainerParticular {
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float a, float b, float c) {
+		System.out.println("metadata for block: " + metadata);
 		TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
 		if (checkMultiBlock(world, x, y, z, player, metadata, a, b, c) == true) {
 			if(tileEntity == null || player.isSneaking()){
 				return false;
 			}
+			world.createExplosion(player, x, y, z, 0, false);
 			player.openGui(Particular.instance, 0, world, x, y, z);
 			return true;
 		} else {
@@ -68,74 +70,46 @@ public class BlockSmasherController extends BlockContainerParticular {
 		int ycheck = y;
 		int zcheck = z;
 		int checkBlock;
-		int tierOne = BlockIds.TIER_ONE_MACHINE_HOUSING;
+		//int tierOne = BlockIds.TIER_ONE_MACHINE_HOUSING;
+		String t1 = "" + BlockIds.TIER_ONE_MACHINE_HOUSING;
+		final int tierOne = Integer.parseInt(t1);
 		int numOfThis = 0;
 
-		if (world.getBlockId(x, y, z - 1) == tierOne && world.getBlockId(x , y + 1, z - 1) == 0) {
+		if (metadata == 3) {
 			xcheck--;
-			System.out.println("z--");
-		} else if (world.getBlockId(x, y, z + 1 ) == tierOne && world.getBlockId(x , y + 1, z + 1) == 0) {
 			zcheck = zcheck - 2;
+		} else if (metadata == 2) {
 			xcheck--;
-			System.out.println("z++");
-		} else if (world.getBlockId(x + 1, y, z) == tierOne && world.getBlockId(x + 1, y + 1, z) == 0) {
+		} else if (metadata == 4) {
+			zcheck--;
+		} else if (metadata == 5) {
+			zcheck--;
 			xcheck = xcheck - 2;
-			zcheck--;
-			System.out.println("x++");
-		} else if (world.getBlockId(x - 1, y, z) == tierOne && world.getBlockId(x - 1, y + 1, z) == 0) {
-			zcheck--;
-			System.out.println("x--");
 		}
 
-		for (int i = 0; i < 4; i++) {  // starts on the zero layer and works up to the top, there are nine statements below to check the nine blocks
-			ycheck = y + i;
-			for (int j = 0; j < 3; j++) {
-				xcheck = x + j;
-				for (int k = 0; k < 3; k++) {
-					zcheck = z + k;
-					checkBlock = world.getBlockId(xcheck, ycheck, zcheck);
+		for( int i = 0; i < 4; i++){
+			for( int j = 0; j < 3; j++){
+				for( int k = 0; k < 3; k++){
+					checkBlock = world.getBlockId(xcheck + j, ycheck + i, zcheck + k);
 					switch(checkBlock) {
 						case 0:
-							if ((i == 2 || i == 3) && j == 2 && z == 2) {
-								// leave blank
-							} else {
-								allLayersTrue = false;
-							}
 							break;
+//						case tierOne:
+//							break;
 						default:
-							if (checkBlock == tierOne) {
-								break;
-							} else if (checkBlock == BlockIds.SMASHER_CONTROLLER) {
-								numOfThis++;
-								break;
-							} else {
-								allLayersTrue = false;
-								break;
-							}
+							//System.out.println("default");
+							break;
 					}
+					//System.out.println( i +" " + j + " "+ k );
 				}
 			}
-
-			if (numOfThis < 1) {
-				allLayersTrue = false;
-			}
-
-			//			if (!(world.getBlockId(xcheck, ycheck, zcheck) == tierOne || world.getBlockId(xcheck, ycheck, zcheck) == 0)) {
-			//				// error
-			//			} else {
-			//				// do 
-			//			
-			//				System.out.println("nope not working");
-			//				allLayersTrue = false;
-			//				System.out.println(i);
-			//			}
 		}
 
+		if (numOfThis > 1) {
+			allLayersTrue = false;
+		}
 		return allLayersTrue;
 	}
-
-
-
 
 	@Override
 	public void breakBlock(World world, int x, int y, int z, int a, int b) {
