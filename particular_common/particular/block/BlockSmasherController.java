@@ -77,7 +77,7 @@ public class BlockSmasherController extends BlockContainerParticular {
 		int ycheck = y;
 		int zcheck = z;
 		int checkBlock;
-		int tierOne = BlockIds.TIER_ONE_MACHINE_HOUSING;
+	    int tierOne = BlockIds.TIER_ONE_MACHINE_HOUSING;
 		int numOfThis = 0;
 
 		if (metadata == 3) {
@@ -98,9 +98,11 @@ public class BlockSmasherController extends BlockContainerParticular {
 					checkBlock = world.getBlockId(xcheck + j, ycheck + i, zcheck + k);
 					switch(checkBlock) {
 						case 0:
+							if (j == 1 && z == 1) {
+								System.out.println("Not working");
+								allLayersTrue = false;
+							}
 							break;
-//						case tierOne:
-//							break;
 						default:
 							//System.out.println("default");
 							break;
