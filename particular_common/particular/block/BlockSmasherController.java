@@ -2,6 +2,11 @@ package particular.block;
 
 import java.util.Random;
 
+<<<<<<< HEAD
+=======
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+>>>>>>> 2372b8fbb89395cf3937132078a46a33c2b3c9e7
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityItem;
@@ -13,6 +18,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import particular.Particular;
+import particular.lib.BlockIds;
 import particular.lib.Reference;
 import particular.lib.Strings;
 import particular.tileentity.TileSmasherController;
@@ -49,12 +55,65 @@ public class BlockSmasherController extends BlockContainerParticular {
 
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float a, float b, float c) {
+		System.out.println("metadata for block: " + metadata);
 		TileEntity tileEntity = world.getBlockTileEntity(x, y, z);
-		if(tileEntity == null || player.isSneaking()){
+		if (checkMultiBlock(world, x, y, z, player, metadata, a, b, c) == true) {
+			if(tileEntity == null || player.isSneaking()){
+				return false;
+			}
+			world.createExplosion(player, x, y, z, 0, false);
+			player.openGui(Particular.instance, 0, world, x, y, z);
+			return true;
+		} else {
 			return false;
 		}
-		player.openGui(Particular.instance, 0, world, x, y, z);
-		return true;
+	}
+	
+	
+
+	public boolean checkMultiBlock(World world, int x, int y, int z, EntityPlayer player, int metadata, float a, float b, float c) {
+		boolean allLayersTrue = true;
+		int xcheck = x;
+		int ycheck = y;
+		int zcheck = z;
+		int checkBlock;
+		int tierOne = BlockIds.TIER_ONE_MACHINE_HOUSING;
+		int numOfThis = 0;
+
+		if (metadata == 3) {
+			xcheck--;
+			zcheck = zcheck - 2;
+		} else if (metadata == 2) {
+			xcheck--;
+		} else if (metadata == 4) {
+			zcheck--;
+		} else if (metadata == 5) {
+			zcheck--;
+			xcheck = xcheck - 2;
+		}
+
+		for( int i = 0; i < 4; i++){
+			for( int j = 0; j < 3; j++){
+				for( int k = 0; k < 3; k++){
+					checkBlock = world.getBlockId(xcheck + j, ycheck + i, zcheck + k);
+					switch(checkBlock) {
+						case 0:
+							break;
+//						case tierOne:
+//							break;
+						default:
+							//System.out.println("default");
+							break;
+					}
+					//System.out.println( i +" " + j + " "+ k );
+				}
+			}
+		}
+
+		if (numOfThis > 1) {
+			allLayersTrue = false;
+		}
+		return allLayersTrue;
 	}
 
 	@Override

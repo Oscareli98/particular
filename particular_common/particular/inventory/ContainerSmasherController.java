@@ -11,7 +11,14 @@ import particular.tileentity.TileSmasherController;
 public class ContainerSmasherController extends Container {
 
 	protected TileEntity tileEntity;
+<<<<<<< HEAD
 	
+=======
+
+	//private final int PLAYER_INVENTORY_ROWS = 3;
+	//private final int PLAYER_INVENTORY_COLUMNS = 9;
+
+>>>>>>> 2372b8fbb89395cf3937132078a46a33c2b3c9e7
 	public ContainerSmasherController(InventoryPlayer inventoryPlayer, TileSmasherController te) {
 		tileEntity = te;
 
@@ -39,6 +46,8 @@ public class ContainerSmasherController extends Container {
 		return true;
 	}
 
+	
+	
 	@Override
 	public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
 		ItemStack stack = null;
