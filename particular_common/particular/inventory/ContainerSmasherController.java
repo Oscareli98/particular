@@ -4,7 +4,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
-import net.minecraft.inventory.SlotFurnace;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import particular.tileentity.TileSmasherController;
@@ -12,10 +11,7 @@ import particular.tileentity.TileSmasherController;
 public class ContainerSmasherController extends Container {
 
 	protected TileEntity tileEntity;
-
-	private final int PLAYER_INVENTORY_ROWS = 3;
-	private final int PLAYER_INVENTORY_COLUMNS = 9;
-
+	
 	public ContainerSmasherController(InventoryPlayer inventoryPlayer, TileSmasherController te) {
 		tileEntity = te;
 
