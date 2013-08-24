@@ -11,6 +11,7 @@ public class Strings {
 	public static final String BLOCK_TIN_NAME = "blockTin";
 	public static final String BLOCK_ALUMINUM_NAME = "blockAluminum";
 	public static final String SMASHER_CONTROLLER_NAME = "smasherController";
+	public static final String MEGA_TNT_NAME = "megaTNT";
 	
 	//Ore related constants
 	public static final String ORE_COPPER_NAME = "oreCopper";
