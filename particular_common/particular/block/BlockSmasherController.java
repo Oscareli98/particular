@@ -63,6 +63,8 @@ public class BlockSmasherController extends BlockContainerParticular {
 			return false;
 		}
 	}
+	
+	
 
 	public boolean checkMultiBlock(World world, int x, int y, int z, EntityPlayer player, int metadata, float a, float b, float c) {
 		boolean allLayersTrue = true;
@@ -70,9 +72,7 @@ public class BlockSmasherController extends BlockContainerParticular {
 		int ycheck = y;
 		int zcheck = z;
 		int checkBlock;
-		//int tierOne = BlockIds.TIER_ONE_MACHINE_HOUSING;
-		String t1 = "" + BlockIds.TIER_ONE_MACHINE_HOUSING;
-		final int tierOne = Integer.parseInt(t1);
+		int tierOne = BlockIds.TIER_ONE_MACHINE_HOUSING;
 		int numOfThis = 0;
 
 		if (metadata == 3) {
