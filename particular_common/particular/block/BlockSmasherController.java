@@ -1,12 +1,8 @@
 package particular.block;
 
 import java.util.Random;
-
-<<<<<<< HEAD
-=======
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
->>>>>>> 2372b8fbb89395cf3937132078a46a33c2b3c9e7
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.item.EntityItem;
