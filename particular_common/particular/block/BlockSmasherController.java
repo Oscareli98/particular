@@ -92,16 +92,8 @@ public class BlockSmasherController extends BlockContainerParticular {
 			for( int j = 0; j < 3; j++){
 				for( int k = 0; k < 3; k++){
 					checkBlock = world.getBlockId(xcheck + j, ycheck + i, zcheck + k);
-					switch(checkBlock) {
-						case 0:
-							if (j == 1 && z == 1) {
-								System.out.println("Not working");
-								allLayersTrue = false;
-							}
-							break;
-						default:
-							//System.out.println("default");
-							break;
+					if ((checkBlock == 0) && ((j == 2 && k == 2 && y == 1) || (j == 2 && k == 2 && y == 2))) {
+						System.out.println("air");
 					}
 					//System.out.println( i +" " + j + " "+ k );
 				}
