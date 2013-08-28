@@ -57,7 +57,7 @@ public class BlockSmasherController extends BlockContainerParticular {
 			if(tileEntity == null || player.isSneaking()){
 				return false;
 			}
-			world.createExplosion(player, x, y, z, 0, false);
+		//	world.createExplosion(player, x, y, z, 0, false);
 			player.openGui(Particular.instance, 0, world, x, y, z);
 			return true;
 		} else {
@@ -92,8 +92,13 @@ public class BlockSmasherController extends BlockContainerParticular {
 			for( int j = 0; j < 3; j++){
 				for( int k = 0; k < 3; k++){
 					checkBlock = world.getBlockId(xcheck + j, ycheck + i, zcheck + k);
-					if ((checkBlock == 0) && ((j == 2 && k == 2 && y == 1) || (j == 2 && k == 2 && y == 2))) {
-						System.out.println("air");
+					if (checkBlock == 0 && j == 1 && k == 1 && i == 1) {
+					} else if (checkBlock == tierOne) {
+					} else if (checkBlock == BlockIds.SMASHER_CONTROLLER) {
+						numOfThis++;
+					} else if (checkBlock == BlockIds.HYPERSONIC_PISTION && world.getBlockMetadata(xcheck + j, ycheck + i, zcheck + k) == 0 && j == 1 && k == 1 && i == 2) {
+					} else {
+						allLayersTrue = false;
 					}
 					//System.out.println( i +" " + j + " "+ k );
 				}

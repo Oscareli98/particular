@@ -30,7 +30,6 @@ public class BlockHypersonicPiston extends BlockParticular {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IconRegister iconRegister) {
-		System.out.println();
 		this.blockIcon = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
 		this.bottom = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "tierOneMachineHousing"));
 		this.top = iconRegister.registerIcon(String.format("%s:%s", Reference.MOD_ID.toLowerCase(), "top" + getUnwrappedUnlocalizedName(this.getUnlocalizedName())));
@@ -41,6 +40,7 @@ public class BlockHypersonicPiston extends BlockParticular {
 	public Icon getIcon(int side, int meta) {
 		int k = getOrientation(meta);
 		return k > 5 ? this.top : (side == k ? (!isExtended(meta) && this.minX <= 0.0D && this.minY <= 0.0D && this.minZ <= 0.0D && this.maxX >= 1.0D && this.maxY >= 1.0D && this.maxZ >= 1.0D ? this.top : this.blockIcon) : (side == Facing.oppositeSide[k] ? this.bottom : this.blockIcon));
+		
 		// Keep so we know how to do multi sided blocks, not pistons, which are special in their own way
 		//		if (meta == 0 && side == 0)
 		//			return bottom;
@@ -68,6 +68,7 @@ public class BlockHypersonicPiston extends BlockParticular {
 	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLivingBase, ItemStack par6ItemStack) {
 		int l = determineOrientation(par1World, par2, par3, par4, par5EntityLivingBase);
 		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+		System.out.println("metadata for block: " + par1World.getBlockMetadata(par2, par3, par4));
 	}
 
 	public static int determineOrientation(World par0World, int par1, int par2, int par3, EntityLivingBase par4EntityLivingBase) {
