@@ -5,6 +5,8 @@ import particular.lib.Strings;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 
 public class TileSmasherController extends TileParticular implements IInventory{
 
@@ -71,7 +73,7 @@ public class TileSmasherController extends TileParticular implements IInventory{
 
 	@Override
 	public int getInventoryStackLimit() {
-		return 65000;
+		return 64;
 	}
 
 	@Override
@@ -89,5 +91,14 @@ public class TileSmasherController extends TileParticular implements IInventory{
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return true;
 	}
+	
+
+	public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
+		super.writeToNBT(par1NBTTagCompound);
+	}
+	
+	public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
+        super.readFromNBT(par1NBTTagCompound);
+    }
 
 }

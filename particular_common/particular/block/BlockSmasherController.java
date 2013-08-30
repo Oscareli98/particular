@@ -18,8 +18,6 @@ import particular.lib.BlockIds;
 import particular.lib.Reference;
 import particular.lib.Strings;
 import particular.tileentity.TileSmasherController;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockSmasherController extends BlockContainerParticular {
 
