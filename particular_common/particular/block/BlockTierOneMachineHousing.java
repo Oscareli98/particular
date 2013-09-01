@@ -54,7 +54,11 @@ public class BlockTierOneMachineHousing extends BlockParticular {
 		//			return West;
 		//		if (meta == 5 && side == 5)
 		//			return East;
-
+		switch (blockSurfaces) {
+			case 0:
+				
+			case 1:
+		}
 
 		return blockIcon;
 
@@ -62,6 +66,7 @@ public class BlockTierOneMachineHousing extends BlockParticular {
 
 	public void determineIcons(World world, int x, int y, int z, int meta) {
 
+		System.out.println("i ran");
 		if (world.getBlockId(x + 1, y, z) == BlockIds.TIER_ONE_MACHINE_HOUSING || world.getBlockId(x - 1, y, z) == BlockIds.TIER_ONE_MACHINE_HOUSING) {
 			System.out.println("x");
 		}
@@ -78,11 +83,6 @@ public class BlockTierOneMachineHousing extends BlockParticular {
 	public void onNeighborBlockChange(World par1World, int x, int y, int z, int meta) {
 		determineIcons(par1World, x, y, z, meta);
 		super.onNeighborBlockChange(par1World, x, y, z, meta);
-	}
-
-	public void onBlockAdded(World par1World, int x, int y, int z, int meta) {
-		determineIcons(par1World, x, y, z, meta);
-		super.onBlockAdded(par1World, x, y, z);
 	}
 
 	public static int getOrientation(int par0) {
