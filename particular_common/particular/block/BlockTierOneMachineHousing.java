@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 public class BlockTierOneMachineHousing extends BlockParticular {
 
 	public boolean neighborBlockChange;
-	int blockSurfaces;
+	String blockSurfaces = "";
 
 	public BlockTierOneMachineHousing(int id) {
 		super(id, Material.iron);
@@ -54,10 +54,12 @@ public class BlockTierOneMachineHousing extends BlockParticular {
 		//			return West;
 		//		if (meta == 5 && side == 5)
 		//			return East;
-		switch (blockSurfaces) {
-			case 0:
-				
-			case 1:
+		if (blockSurfaces == "x") {
+			
+		} else if (blockSurfaces == "y") {
+			
+		} else if (blockSurfaces == "z") {
+			
 		}
 
 		return blockIcon;
@@ -68,15 +70,15 @@ public class BlockTierOneMachineHousing extends BlockParticular {
 
 		System.out.println("i ran");
 		if (world.getBlockId(x + 1, y, z) == BlockIds.TIER_ONE_MACHINE_HOUSING || world.getBlockId(x - 1, y, z) == BlockIds.TIER_ONE_MACHINE_HOUSING) {
-			System.out.println("x");
+			blockSurfaces = "x";
 		}
 		if (world.getBlockId(x, y + 1, z) == BlockIds.TIER_ONE_MACHINE_HOUSING || world.getBlockId(x, y - 1, z) == BlockIds.TIER_ONE_MACHINE_HOUSING) {
-			System.out.println("y");
+			blockSurfaces = "y";
 		}
 		if (world.getBlockId(x, y, z + 1) == BlockIds.TIER_ONE_MACHINE_HOUSING || world.getBlockId(x, y, z - 1) == BlockIds.TIER_ONE_MACHINE_HOUSING) {
-			System.out.println("z");
+			blockSurfaces += "z";
 		}
-		blockSurfaces = 1;
+		blockSurfaces = "x";
 	}
 
 
