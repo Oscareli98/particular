@@ -28,6 +28,7 @@ public class Strings {
 	public static final String INGOT_TIN_NAME = "ingotTin";
 	public static final String INGOT_ALUMINUM_NAME = "ingotAluminum";
 	
+	
 	//NBT Related Constants
 	public static final String NBT_TE_STATE_KEY = "teState";
     public static final String NBT_TE_CUSTOM_NAME = "CustomName";

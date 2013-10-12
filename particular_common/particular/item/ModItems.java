@@ -44,6 +44,7 @@ public class ModItems {
 		
 		initItemRecipies();
 		initSmeltingRecipies();
+		initArmor();
 	}
 	public static void initItemRecipies(){
 		GameRegistry.addRecipe(new ItemStack(emptyStickWelder), new Object[] { "i  ", "   ", "   ", Character.valueOf('d'), Block.dirt, Character.valueOf('i'), Item.ingotIron});
@@ -53,5 +54,9 @@ public class ModItems {
 		GameRegistry.addSmelting(BlockIds.ORE_ALUMINUM, new ItemStack(ingotAluminum), 1.0f);
 		GameRegistry.addSmelting(BlockIds.ORE_COPPER, new ItemStack(ingotCopper), 1.0f);
 		GameRegistry.addSmelting(BlockIds.ORE_TIN, new ItemStack(ingotTin), 1.0f);
+	}
+	
+	public static void initArmor() {
+		
 	}
 }
